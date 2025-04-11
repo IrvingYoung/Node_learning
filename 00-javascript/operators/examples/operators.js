@@ -1,79 +1,69 @@
-// JavaScript Operators Examples
+// Arithmetic Operators
+console.log('\n=== Arithmetic Operators ===');
+let a = 10, b = 3;
+console.log(`${a} + ${b} =`, a + b);  // 13
+console.log(`${a} - ${b} =`, a - b);  // 7
+console.log(`${a} * ${b} =`, a * b);  // 30
+console.log(`${a} / ${b} =`, a / b);  // 3.333...
+console.log(`${a} % ${b} =`, a % b);  // 1
+console.log(`${a} ** ${b} =`, a ** b); // 1000
 
-// --- Arithmetic Operators ---
-let a = 10;
-let b = 4;
+// Assignment Operators
+console.log('\n=== Assignment Operators ===');
+let x = 5;
+x += 3; console.log('x += 3 →', x);  // 8
+x -= 2; console.log('x -= 2 →', x);  // 6
+x *= 4; console.log('x *= 4 →', x);  // 24
+x /= 3; console.log('x /= 3 →', x);  // 8
+x %= 5; console.log('x %= 5 →', x);  // 3
+x **= 2; console.log('x **= 2 →', x); // 9
 
-console.log("--- Arithmetic Operators ---");
-console.log("a + b =", a + b); // Addition: 14
-console.log("a - b =", a - b); // Subtraction: 6
-console.log("a * b =", a * b); // Multiplication: 40
-console.log("a / b =", a / b); // Division: 2.5
-console.log("a % b =", a % b); // Modulus (Remainder): 2
-console.log("a ** b =", a ** b); // Exponentiation (a to the power of b): 10000
+// Comparison Operators
+console.log('\n=== Comparison Operators ===');
+console.log('5 == "5" →', 5 == '5');   // true
+console.log('5 === "5" →', 5 === '5'); // false
+console.log('5 != "5" →', 5 != '5');   // false
+console.log('5 !== "5" →', 5 !== '5'); // true
+console.log('5 > 3 →', 5 > 3);        // true
+console.log('5 < 3 →', 5 < 3);        // false
 
-let c = 5;
-c++; // Increment
-console.log("c++ =", c); // 6
-c--; // Decrement
-console.log("c-- =", c); // 5
-console.log(""); // Newline for readability
+// Logical Operators
+console.log('\n=== Logical Operators ===');
+console.log('true && false →', true && false);  // false
+console.log('true || false →', true || false);  // true
+console.log('!true →', !true);                 // false
 
-// --- Assignment Operators ---
-console.log("--- Assignment Operators ---");
-let x = 10;
-x += 5; // Equivalent to x = x + 5
-console.log("x += 5:", x); // 15
-x -= 3; // Equivalent to x = x - 3
-console.log("x -= 3:", x); // 12
-x *= 2; // Equivalent to x = x * 2
-console.log("x *= 2:", x); // 24
-x /= 4; // Equivalent to x = x / 4
-console.log("x /= 4:", x); // 6
-x %= 5; // Equivalent to x = x % 5
-console.log("x %= 5:", x); // 1
-console.log("");
+// Practical use with short-circuiting
+const config = { timeout: 0 };
+const timeout = config.timeout || 3000;
+console.log('Timeout (||):', timeout);  // 3000
+const timeoutSafe = config.timeout ?? 3000;
+console.log('Timeout (??):', timeoutSafe);  // 0
 
-// --- Comparison Operators ---
-console.log("--- Comparison Operators ---");
-let val1 = 5;
-let val2 = "5";
-let val3 = 10;
+// Ternary Operator
+console.log('\n=== Ternary Operator ===');
+const age = 20;
+const status = age >= 18 ? 'Adult' : 'Minor';
+console.log(`Age ${age}:`, status);  // 'Adult'
 
-console.log("val1 == val2:", val1 == val2);   // Loose equality (true, type coercion)
-console.log("val1 === val2:", val1 === val2); // Strict equality (false, different types)
-console.log("val1 != val2:", val1 != val2);   // Loose inequality (false)
-console.log("val1 !== val2:", val1 !== val2); // Strict inequality (true)
-console.log("val1 > val3:", val1 > val3);    // Greater than (false)
-console.log("val1 < val3:", val1 < val3);    // Less than (true)
-console.log("val1 >= 5:", val1 >= 5);       // Greater than or equal to (true)
-console.log("val3 <= 10:", val3 <= 10);     // Less than or equal to (true)
-console.log("");
+// Special Operators
+console.log('\n=== Special Operators ===');
+// Spread
+const arr1 = [1, 2, 3];
+const arr2 = [...arr1, 4, 5];
+console.log('Spread array:', arr2);  // [1, 2, 3, 4, 5]
 
-// --- Logical Operators ---
-console.log("--- Logical Operators ---");
-let p = true;
-let q = false;
+// Optional Chaining
+const user = { 
+  profile: { 
+    name: 'Alice',
+    address: null
+  } 
+};
+console.log('User name:', user?.profile?.name);  // 'Alice'
+console.log('User city:', user?.profile?.address?.city);  // undefined
 
-console.log("p && q:", p && q); // Logical AND (false)
-console.log("p || q:", p || q); // Logical OR (true)
-console.log("!p:", !p);       // Logical NOT (false)
-console.log("");
-
-// --- Ternary Operator ---
-console.log("--- Ternary Operator ---");
-let age = 20;
-let status = (age >= 18) ? "Adult" : "Minor";
-console.log("Status:", status); // Output: Adult
-console.log("");
-
-// --- typeof Operator ---
-console.log("--- typeof Operator ---");
-console.log("typeof val1:", typeof val1);     // number
-console.log("typeof val2:", typeof val2);     // string
-console.log("typeof p:", typeof p);         // boolean
-console.log("typeof status:", typeof status); // string
-console.log("typeof {}:", typeof {});       // object
-console.log("typeof null:", typeof null);     // object (historical quirk)
-console.log("typeof undefined:", typeof undefined); // undefined
-console.log("");
+// Nullish Coalescing
+const input = null;
+const value = input ?? 'default';
+console.log('Nullish coalescing:', value);  // 'default'
